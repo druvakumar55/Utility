@@ -1,0 +1,11 @@
+mongodb:
+  dbName:
+    username: dbUserName
+    password: dbPassword
+    authentication-database: db
+    host: localhost
+    port: 27017
+    database: dbName
+    
+server:
+  port: 8112
