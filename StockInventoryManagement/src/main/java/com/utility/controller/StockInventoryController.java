@@ -31,9 +31,9 @@ public class StockInventoryController {
 	 */
 	@GetMapping("/stocks/{id}")
 	public ResponseEntity<StockInventory> getStockById(@PathVariable(value = "id") String stockId) throws Exception {
-		StockInventory user = inventoryRepository.findById(stockId)
+		StockInventory stock = inventoryRepository.findById(stockId)
 				.orElseThrow(() -> new Exception("No stock found" + stockId));
-		return ResponseEntity.ok().body(user);
+		return ResponseEntity.ok().body(stock);
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class StockInventoryController {
 	}
 
 	@PutMapping("/stocks/{id}")
-	public ResponseEntity<StockInventory> updateUser(@PathVariable(value = "id") String stockId,
+	public ResponseEntity<StockInventory> updateStock(@PathVariable(value = "id") String stockId,
 			@RequestBody StockInventory stockInventory) throws Exception {
 		StockInventory inventory = inventoryRepository.findById(stockId)
 				.orElseThrow(() -> new Exception("No stock found" + stockId));
